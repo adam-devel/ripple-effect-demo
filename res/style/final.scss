@@ -1,0 +1,26 @@
+@charset "UTF-8";
+//define prop
+//colors
+$color-bg0:#FFFFFF;
+$color-bg1:#FAFAFA;
+$color-bg2:#F5F5F5;
+$color-bg3:#EEEEEE;
+$color-bg4:#E0E0E0;
+//$color-primary:#4CAF50;
+$color-primary:#ffffff;
+$color-accent:#4CAF50;
+//mob/pc screen width
+$cr:450px;
+$mob:max-width;
+$pc:min-width;
+//dimentions
+$base1:8px;
+$base2:$base1*2;
+$base3:$base2*2;
+$base4:$base3*2;
+//import files
+@import "normalize/index.scss";
+@import "sidenav/index.scss";
+@import "main/index.scss";
+@import "more/index.scss";
+@import "buttons/index.scss";

@@ -1,0 +1,257 @@
+/* line 1, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+html,
+body {
+  /*display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;*/
+  line-height: 1.4;
+  font-size: 1rem;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  background: #EEEEEE;
+  /**changes reset bg*/
+  color: #454545;
+  font-family: Helvetica, sans-serif, arial;
+  box-sizing: border-box; }
+
+/* line 26, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+html[web-app] {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default; }
+  /* line 28, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+  html[web-app] ::-webkit-scrollbar {
+    width: 4px;
+    height: 8px; }
+  /* line 32, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+  html[web-app] ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15); }
+  /* line 35, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+  html[web-app] ::-webkit-scrollbar-corner {
+    background: 0; }
+  /* line 42, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+  html[web-app] button::-moz-focus-inner,
+  html[web-app] [type="button"]::-moz-focus-inner,
+  html[web-app] [type="reset"]::-moz-focus-inner,
+  html[web-app] [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0; }
+  /* line 59, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+  html[web-app] *,
+  html[web-app] *:focus {
+    outline: 0; }
+
+/* line 65, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+[type="number"],
+[type="number"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+/* line 71, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/normalize/index.scss */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  padding: 0;
+  height: 18px; }
+
+/* line 1, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/sidenav/index.scss */
+sidenav {
+  display: inline-block;
+  background: #F5F5F5;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  width: 260px; }
+
+/* line 1, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/main/index.scss */
+div.main {
+  display: inline-block; }
+
+/* line 1, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/more/index.scss */
+div.main,
+sidenav {
+  vertical-align: top; }
+
+/* line 1, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+.-ripple-element {
+  border-radius: 50%;
+  position: absolute;
+  opacity: .65;
+  height: 10px;
+  width: 10px;
+  transition: 0.3s cubic-bezier(0, 0, 0.3, 0) !important; }
+  /* line 7, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  .-ripple-element.-dark-ripple {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.18) 50%, transparent 70%); }
+  /* line 10, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  .-ripple-element.-light-ripple {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.15) 70%, transparent 70%); }
+  /* line 14, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  .-ripple-element.finish {
+    transition: 0.8s cubic-bezier(0.8, 0.5, 0.2, 0.8); }
+
+/* line 19, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+  vertical-align: middle;
+  font-family: roboto;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 2px;
+  min-width: 88px;
+  height: 36px;
+  padding: 0 8px;
+  margin: 0 8px;
+  font-size: 14px;
+  background: transparent;
+  overflow: hidden;
+  border: none;
+  position: relative;
+  transition: .3s; }
+  /* line 40, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  button[flat]:not([disabled]),
+  [type="button"][flat]:not([disabled]),
+  [type="reset"][flat]:not([disabled]),
+  [type="submit"][flat]:not([disabled]) {
+    margin: 8px; }
+    /* line 42, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+    button[flat]:not([disabled]):focus,
+    [type="button"][flat]:not([disabled]):focus,
+    [type="reset"][flat]:not([disabled]):focus,
+    [type="submit"][flat]:not([disabled]):focus {
+      background: rgba(153, 153, 153, 0.12); }
+    /* line 45, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+    button[flat]:not([disabled]):hover,
+    [type="button"][flat]:not([disabled]):hover,
+    [type="reset"][flat]:not([disabled]):hover,
+    [type="submit"][flat]:not([disabled]):hover {
+      background: rgba(153, 153, 153, 0.2); }
+    /* line 48, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+    button[flat]:not([disabled]):active,
+    [type="button"][flat]:not([disabled]):active,
+    [type="reset"][flat]:not([disabled]):active,
+    [type="submit"][flat]:not([disabled]):active {
+      background: rgba(153, 153, 153, 0.4); }
+  /* line 52, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  button[flat][disabled],
+  [type="button"][flat][disabled],
+  [type="reset"][flat][disabled],
+  [type="submit"][flat][disabled] {
+    color: rgba(0, 0, 0, 0.26);
+    font-weight: 600; }
+  /* line 57, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  button[raised],
+  [type="button"][raised],
+  [type="reset"][raised],
+  [type="submit"][raised] {
+    background: rgba(153, 153, 153, 0.18); }
+    /* line 59, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+    button[raised]:not([disabled]),
+    [type="button"][raised]:not([disabled]),
+    [type="reset"][raised]:not([disabled]),
+    [type="submit"][raised]:not([disabled]) {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); }
+      /* line 61, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+      button[raised]:not([disabled]):focus,
+      [type="button"][raised]:not([disabled]):focus,
+      [type="reset"][raised]:not([disabled]):focus,
+      [type="submit"][raised]:not([disabled]):focus {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.27); }
+      /* line 64, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+      button[raised]:not([disabled]):hover,
+      [type="button"][raised]:not([disabled]):hover,
+      [type="reset"][raised]:not([disabled]):hover,
+      [type="submit"][raised]:not([disabled]):hover {
+        box-shadow: 0 4px 9px rgba(0, 0, 0, 0.23);
+        background: rgba(153, 153, 153, 0.2); }
+      /* line 68, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+      button[raised]:not([disabled]):active,
+      [type="button"][raised]:not([disabled]):active,
+      [type="reset"][raised]:not([disabled]):active,
+      [type="submit"][raised]:not([disabled]):active {
+        box-shadow: 0 7px 11px rgba(0, 0, 0, 0.25);
+        background: rgba(153, 153, 153, 0.25); }
+    /* line 73, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+    button[raised][disabled],
+    [type="button"][raised][disabled],
+    [type="reset"][raised][disabled],
+    [type="submit"][raised][disabled] {
+      opacity: .6; }
+  /* line 77, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  button[fab], button[fab-mini],
+  [type="button"][fab],
+  [type="button"][fab-mini],
+  [type="reset"][fab],
+  [type="reset"][fab-mini],
+  [type="submit"][fab],
+  [type="submit"][fab-mini] {
+    background: #ffffff;
+    color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    padding: 0;
+    line-height: 56px;
+    min-height: 56px;
+    min-width: 56px;
+    max-height: 56px;
+    max-width: 56px;
+    font-size: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+    /* line 91, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+    button[fab]:not([disabled]), button[fab-mini]:not([disabled]),
+    [type="button"][fab]:not([disabled]),
+    [type="button"][fab-mini]:not([disabled]),
+    [type="reset"][fab]:not([disabled]),
+    [type="reset"][fab-mini]:not([disabled]),
+    [type="submit"][fab]:not([disabled]),
+    [type="submit"][fab-mini]:not([disabled]) {
+      box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2); }
+      /* line 93, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+      button[fab]:not([disabled]):hover, button[fab-mini]:not([disabled]):hover,
+      [type="button"][fab]:not([disabled]):hover,
+      [type="button"][fab-mini]:not([disabled]):hover,
+      [type="reset"][fab]:not([disabled]):hover,
+      [type="reset"][fab-mini]:not([disabled]):hover,
+      [type="submit"][fab]:not([disabled]):hover,
+      [type="submit"][fab-mini]:not([disabled]):hover {
+        box-shadow: 0 5px 8px 2px rgba(0, 0, 0, 0.15); }
+    /* line 97, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+    button[fab][disabled], button[fab-mini][disabled],
+    [type="button"][fab][disabled],
+    [type="button"][fab-mini][disabled],
+    [type="reset"][fab][disabled],
+    [type="reset"][fab-mini][disabled],
+    [type="submit"][fab][disabled],
+    [type="submit"][fab-mini][disabled] {
+      background: #d0cece;
+      opacity: .35; }
+  /* line 102, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  button[fab-mini],
+  [type="button"][fab-mini],
+  [type="reset"][fab-mini],
+  [type="submit"][fab-mini] {
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px; }
+  /* line 111, C:/Users/Adem Moussa/Desktop/Frame Work/frame-work/res/style/buttons/index.scss */
+  button[disabled],
+  [type="button"][disabled],
+  [type="reset"][disabled],
+  [type="submit"][disabled] {
+    cursor: default; }
+
+/*# sourceMappingURL=final.css.map */
