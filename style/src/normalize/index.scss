@@ -1,76 +1,57 @@
 html,
 body {
-    //flex
-    /*display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;*/
-    //text
-    line-height: 1.4;
-    font-size: 1rem;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    //Dimentions
-    margin: 0;
-    //Colors
-    background: $color-bg3;
-    /**changes reset bg*/
-//    background: #fff;
-    color: #454545;
-    //Fonts
-    font-family: Helvetica, sans-serif, arial;
-    //box-sizing
-    box-sizing: border-box;
+  line-height: 1.4;
+  font-size: 1rem;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  background: $color-bg3;
+  color: #454545;
+  font-family: Helvetica, sans-serif, arial;
 }
 
-//for web App
-html[web-app] {
-    //set custom scrollbar
-     ::-webkit-scrollbar {
-        width: 4px;
-        height: 8px;
-    }
-     ::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.15)
-    }
-     ::-webkit-scrollbar-corner {
-        background: 0;
-    }
-    //remove tap highlight color for mobile
-    -webkit-tap-highlight-color: transparent;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-    //remove firefox inner border and padding
-    button::-moz-focus-inner,
-    [type="button"]::-moz-focus-inner,
-    [type="reset"]::-moz-focus-inner,
-    [type="submit"]::-moz-focus-inner {
-        border-style: none;
-        padding: 0;
-    }
-    //remove user select
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-    //set cursor to default
-    cursor: default;
-    //remove outline when focus
-    *,
-    *:focus {
-        outline: 0;
-    }
+html {
+  //scrollbars
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+  }
+  ::-webkit-scrollbar-corner {
+    background: 0;
+  }
+  //remove tap highlight color for mobile
+  -webkit-tap-highlight-color: transparent;
+  //remove firefox inner border and padding
+  button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
+  [type="reset"]::-moz-focus-inner,
+  [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+  //remove user select
+  user-select: none;
+  //set cursor to default
+  cursor: default;
+  //remove outline when focus
+  *,
+  *:focus {
+    outline: 0;
+  }
 }
 
 [type="number"],
 [type="number"] {
-    box-sizing: border-box;
-    padding: 0;
+  box-sizing: border-box;
+  padding: 0;
 }
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-    margin: 0;
-    padding: 0;
-    height: 18px
+  margin: 0;
+  padding: 0;
+  height: 18px;
 }
