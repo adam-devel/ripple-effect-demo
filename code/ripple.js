@@ -1,59 +1,55 @@
-var startrippleeffect = function (event) {
-    //get targeted ripple container
-    var holder = event.target;
-    while (holder) {
-      if (holder.classList.contains("ripple")) break;
-      holder = holder.parentNode;
-    }
-    //get targeted element (h/w)
-    var t_width = parseInt(window.getComputedStyle(holder).width),
-      t_height = parseInt(window.getComputedStyle(holder).height),
-      //get event (x/y) pos
-      mouse_x = event.pageX - holder.offsetLeft,
-      mouse_y = event.pageY - holder.offsetTop,
-      //calculate ripple rayon
-      r_rayon = Math.max(t_height, t_width) * Math.SQRT2;
-    //make ripple element
-    var ripple = document.createElement("div"),
-      r_style = ripple.style;
-    ripples.push(ripple);
-    ripple.className = "-ripple-element -dark-ripple -init-ripple";
-    //set first ripple element (x/y) pos
-    r_style.left = mouse_x + "px";
-    r_style.top = mouse_y + "px";
-    //append ripple element inside targeted ripple container
-    holder.appendChild(ripple);
-    //animate ripple element
-    setTimeout(function () {
-      //set calculated ripple (h/w)
-      r_style.height = r_rayon + "px";
-      r_style.width = r_rayon + "px";
-      //set calculated ripple (x/y) pos
-      r_style.top = (t_height - r_rayon) / 2 + "px";
-      r_style.left = (t_width - r_rayon) / 2 + "px";
-      //set opacity
-      r_rayon.opacity = 1;
-    }, 0);
-  },
-  endrippleeffect = function (event) {
-    ripples.forEach(function (ripple) {
-      setTimeout(function () {
-        ripple.style.opacity = 0;
-      }, 800);
-      setTimeout(function () {
-        ripple.remove();
-      }, 2500);
-    });
-  },
-  ripples = [],
-  //add events
-  body = document.body;
-body.addEventListener("mousedown", startrippleeffect);
-body.addEventListener("mouseup", endrippleeffect);
+const { body } = document;
+let registry = null;
 
-body.addEventListener("touchstart", startrippleeffect);
-body.addEventListener("touchend", endrippleeffect);
+function startEffect(event, tone = "dark") {
+  // just in case the user click on a ripple, then keep climbing
+  // the dom until reaching a lake, return if none is found
+  let lake = event.target;
+  while (!lake.classList.contains("ripple")) {
+    if (lake === body) return;
+    lake = lake.parentNode;
+  }
 
-body.addEventListener("cancel", function () {
-  alert(5);
+  // metrics
+  const lakeWidth = parseInt(window.getComputedStyle(lake).width);
+  const lakeHeight = parseInt(window.getComputedStyle(lake).height);
+  const LakeX = event.pageX - lake.offsetLeft;
+  const LakeY = event.pageY - lake.offsetTop;
+  let rippleRadius = Math.max(lakeHeight, lakeWidth) * Math.SQRT2;
+  rippleRadius += rippleRadius * 0.3;
+
+  //put a ripple in the lake
+  const ripple = document.createElement("div");
+  ripple.className = `-ripple-element -${tone}-ripple -init-ripple`;
+  lake.append(ripple);
+
+  //animate the ripple element
+  const animation = ripple.animate(
+    {
+      height: ["0px", `${rippleRadius}px`],
+      width: ["0px", `${rippleRadius}px`],
+      top: [`${LakeY}px`, `${(lakeHeight - rippleRadius) / 2}px`],
+      left: [`${LakeX}px`, `${(lakeWidth - rippleRadius) / 2}px`],
+      opacity: [0.1, 1],
+    },
+    { duration: 360, fill: "forwards", easing: "ease-out"}
+  );
+  // register the ripple
+  registry = [ripple, animation];
+}
+
+function finishEffect() {
+  if (registry === null) return;
+  const [ripple, animation] = registry;
+  animation.finished
+    .then(() => ripple.animate({ opacity: [1, 0] }, 260).finished)
+    .then(() => ripple.remove());
+  registry = null;
+}
+
+body.addEventListener("mousedown", startEffect);
+body.addEventListener("touchstart", ({ touches }) => {
+  startEffect(touches[0]);
 });
+body.addEventListener("mouseup", finishEffect);
+body.addEventListener("touchend", finishEffect);
