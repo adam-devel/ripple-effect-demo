@@ -1,11 +1,7 @@
 const { body } = document;
 let registry = null;
 
-function startEffect(event, tone = "dark") {
-  // just in case the user click on a ripple, then keep climbing
-  // the dom until reaching a lake, return if none is found
-  let lake = event.target;
-  while (!lake.classList.contains("ripple")) {
+  while (!lake.classList.contains("lake")) {
     if (lake === body) return;
     lake = lake.parentNode;
   }
