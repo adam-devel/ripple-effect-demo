@@ -1,6 +1,11 @@
 const { body } = document;
 let registry = null;
 
+function startEffect({target, pageX, pageY}, tone = "dark") {
+  // the ripple element will cover the whole lake, if the user click/touch it
+  // before it disappear, we will keep climbing the dom until reaching a lake
+
+  let lake = target;
   while (!lake.classList.contains("lake")) {
     if (lake === body) return;
     lake = lake.parentNode;
@@ -9,8 +14,8 @@ let registry = null;
   // metrics
   const lakeWidth = parseInt(window.getComputedStyle(lake).width);
   const lakeHeight = parseInt(window.getComputedStyle(lake).height);
-  const LakeX = event.pageX - lake.offsetLeft;
-  const LakeY = event.pageY - lake.offsetTop;
+  const LakeX = pageX - lake.offsetLeft;
+  const LakeY = pageY - lake.offsetTop;
   let rippleRadius = Math.max(lakeHeight, lakeWidth) * Math.SQRT2;
   rippleRadius += rippleRadius * 0.3;
 
