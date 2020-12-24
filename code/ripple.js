@@ -31,9 +31,12 @@ function startEffect({target, pageX, pageY}, tone = "dark") {
       width: ["0px", `${rippleRadius}px`],
       top: [`${LakeY}px`, `${(lakeHeight - rippleRadius) / 2}px`],
       left: [`${LakeX}px`, `${(lakeWidth - rippleRadius) / 2}px`],
-      opacity: [0.1, 1],
     },
-    { duration: 360, fill: "forwards", easing: "ease-out"}
+    {
+      duration: 220,
+      fill: "forwards",
+      easing: "cubic-bezier(0, 0, 0.3, 0)",
+    }
   );
   // register the ripple
   registry = [ripple, animation];
@@ -43,7 +46,7 @@ function finishEffect() {
   if (registry === null) return;
   const [ripple, animation] = registry;
   animation.finished
-    .then(() => ripple.animate({ opacity: [1, 0] }, 260).finished)
+    .then(() => ripple.animate({ opacity: 0 }, 360).finished)
     .then(() => ripple.remove());
   registry = null;
 }
