@@ -1,0 +1,33 @@
+name: build
+on:
+  push: { branches: [main] }
+jobs:
+  sass:
+    name: "Build Sass"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 'build'
+        uses: actions/checkout@master
+        with:
+          ref: build
+          fetch-depth: "0"
+      - name: merge updates from the main branchs
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git merge origin/main --squash --no-commit --no-ff --strategy-option theirs
+      - name: Setup Nodejs for building
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Install NPM dependencies
+        run: npm install
+      - name: Build Sass
+        run: npm run build
+      - name: Commit and push the changes
+        run: |
+          git checkout HEAD .gitignore
+          git checkout HEAD .github
+          git add --all
+          git commit -m "Action: Rebuilt CSS"
+          git push
