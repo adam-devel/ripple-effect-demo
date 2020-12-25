@@ -3,7 +3,7 @@ const sass = require("gulp-dart-sass");
 
 const watchGlob = "./style/src/**/*.scss";
 const srcFile = "./style/src/index.scss";
-const destFile = "./style/dist/final.css";
+const destFile = "./style/dist/";
 
 module.exports = {
   "sass:watch": watchSass,
