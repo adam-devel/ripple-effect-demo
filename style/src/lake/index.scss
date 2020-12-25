@@ -1,0 +1,23 @@
+.-js-ripple {
+  border-radius: 50%;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  &--dark {
+    background-image: radial-gradient(
+      rgba(0, 0, 0, 0.26) 50%,
+      transparent 80%
+    );
+  }
+  &--light {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.15) 70%,
+      transparent 80%
+    );
+  }
+}
+
+.lake {
+  overflow: hidden;
+  position: relative;
+}

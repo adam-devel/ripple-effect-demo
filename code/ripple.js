@@ -1,7 +1,7 @@
 const { body } = document;
 let registry = null;
 
-function startEffect({target, pageX, pageY}, tone = "dark") {
+function startEffect({ target, pageX, pageY }, tone = "dark") {
   // the ripple element will cover the whole lake, if the user click/touch it
   // before it disappear, we will keep climbing the dom until reaching a lake
 
@@ -21,7 +21,7 @@ function startEffect({target, pageX, pageY}, tone = "dark") {
 
   //put a ripple in the lake
   const ripple = document.createElement("div");
-  ripple.className = `-ripple-element -${tone}-ripple -init-ripple`;
+  ripple.className = `-js-ripple -js-ripple--${tone}`;
   lake.append(ripple);
 
   //animate the ripple element
@@ -46,7 +46,16 @@ function finishEffect() {
   if (registry === null) return;
   const [ripple, animation] = registry;
   animation.finished
-    .then(() => ripple.animate({ opacity: 0 }, 360).finished)
+    .then(
+      () =>
+        ripple.animate(
+          { opacity: 0 },
+          {
+            duration: 360,
+            easing: "cubic-bezier(0.8, 0.5, 0.2, 0.8)",
+          }
+        ).finished
+    )
     .then(() => ripple.remove());
   registry = null;
 }
