@@ -2,9 +2,11 @@ const { body } = document;
 let registry = null;
 
 function startEffect({ target, pageX, pageY }, tone = "dark") {
+  // finish the last ripple element (just in case the mouseup didn't fire)
+  finishEffect();
+
   // the ripple element will cover the whole lake, if the user click/touch it
   // before it disappear, we will keep climbing the dom until reaching a lake
-
   let lake = target;
   while (!lake.classList.contains("lake")) {
     if (lake === body) return;
@@ -45,6 +47,7 @@ function startEffect({ target, pageX, pageY }, tone = "dark") {
 function finishEffect() {
   if (registry === null) return;
   const [ripple, animation] = registry;
+  registry = null;
   animation.finished
     .then(
       () =>
@@ -57,7 +60,6 @@ function finishEffect() {
         ).finished
     )
     .then(() => ripple.remove());
-  registry = null;
 }
 
 body.addEventListener("mousedown", startEffect);
