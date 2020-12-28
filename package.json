@@ -1,4 +1,7 @@
 {
+	"scripts": {
+		"build": "sass --style=compressed style/src/index.scss:style/dist/index.css"
+	},
 	"devDependencies": {
 		"@types/gulp": "^4.0.7",
 		"gulp": "^4.0.2",

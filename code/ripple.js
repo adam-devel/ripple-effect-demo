@@ -2,18 +2,22 @@ const { body } = document;
 let registry = null;
 
 function startEffect({ target, pageX, pageY }, tone = "dark") {
+  // finish the last ripple element (just in case the mouseup didn't fire)
+  finishEffect();
+
   // the ripple element will cover the whole lake, if the user click/touch it
   // before it disappear, we will keep climbing the dom until reaching a lake
-
   let lake = target;
   while (!lake.classList.contains("lake")) {
     if (lake === body) return;
     lake = lake.parentNode;
   }
-
+  if (lake.hasAttribute("disabled")) return;
   // metrics
-  const lakeWidth = parseInt(window.getComputedStyle(lake).width);
-  const lakeHeight = parseInt(window.getComputedStyle(lake).height);
+  const {
+    width: lakeWidth,
+    height: lakeHeight,
+  } = lake.getBoundingClientRect();
   const LakeX = pageX - lake.offsetLeft;
   const LakeY = pageY - lake.offsetTop;
   let rippleRadius = Math.max(lakeHeight, lakeWidth) * Math.SQRT2;
@@ -45,6 +49,7 @@ function startEffect({ target, pageX, pageY }, tone = "dark") {
 function finishEffect() {
   if (registry === null) return;
   const [ripple, animation] = registry;
+  registry = null;
   animation.finished
     .then(
       () =>
@@ -57,12 +62,14 @@ function finishEffect() {
         ).finished
     )
     .then(() => ripple.remove());
-  registry = null;
 }
 
-body.addEventListener("mousedown", startEffect);
-body.addEventListener("touchstart", ({ touches }) => {
-  startEffect(touches[0]);
-});
-body.addEventListener("mouseup", finishEffect);
-body.addEventListener("touchend", finishEffect);
+if ("ontouchstart" in window) {
+  body.addEventListener("touchstart", ({ touches }) => {
+    startEffect(touches[0]);
+  });
+  body.addEventListener("touchend", finishEffect);
+} else {
+  body.addEventListener("mousedown", startEffect);
+  body.addEventListener("mouseup", finishEffect);
+}
