@@ -14,8 +14,10 @@ function startEffect({ target, pageX, pageY }, tone = "dark") {
   }
   if (lake.hasAttribute("disabled")) return;
   // metrics
-  const lakeWidth = parseInt(window.getComputedStyle(lake).width);
-  const lakeHeight = parseInt(window.getComputedStyle(lake).height);
+  const {
+    width: lakeWidth,
+    height: lakeHeight,
+  } = lake.getBoundingClientRect();
   const LakeX = pageX - lake.offsetLeft;
   const LakeY = pageY - lake.offsetTop;
   let rippleRadius = Math.max(lakeHeight, lakeWidth) * Math.SQRT2;
