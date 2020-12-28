@@ -1,0 +1,70 @@
+%raised {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  &:focus {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.27);
+  }
+  &:hover {
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.23);
+  }
+  transition: box-shadow 0.2s;
+  &:disabled {
+    opacity: 0.6;
+    background: rgba(153, 153, 153, 0.18);
+    box-shadow: none;
+  }
+}
+
+.button {
+  font-family: sans-serif, roboto;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 6px;
+  min-width: 88px;
+  height: 36px;
+  padding: 0 8px;
+  margin: 0 8px;
+  font-size: 14px;
+  position: relative;
+  background: $color-surface;
+  color: $color-on-surface;
+  &--flat {
+    margin: 8px;
+    background: transparent;
+    &:focus {
+      background: rgba(153, 153, 153, 0.12);
+    }
+    &:hover {
+      background: rgba(153, 153, 153, 0.4);
+    }
+    &:disabled {
+      color: rgba(0, 0, 0, 0.26);
+    }
+  }
+  &--raise {
+    @extend %raised;
+  }
+  &--fab {
+    @extend %raised;
+    border-radius: 50%;
+    padding: 0;
+    line-height: 56px;
+    min-height: 56px;
+    min-width: 56px;
+    max-height: 56px;
+    max-width: 56px;
+    font-size: 0px;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+    &-mini {
+      min-width: 40px;
+      min-height: 40px;
+      max-width: 40px;
+      max-height: 40px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+  &:disabled {
+    cursor: default;
+  }
+}

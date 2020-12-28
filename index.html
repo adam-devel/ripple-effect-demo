@@ -3,11 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <!--responsive Design-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <!--Style-->
     <link rel="stylesheet" href="style/dist/index.css" />
     <!--Fonts-->
-    <link rel="stylesheet" href="style/assets/typography/roboto.css" />
+    <link
+      rel="stylesheet"
+      href="style/assets/typography/roboto.css"
+    />
     <!--Icons-->
     <link rel="stylesheet" href="style/assets/icon/gmdi.css" />
     <!--Title-->
@@ -15,9 +21,20 @@
   </head>
 
   <body>
-    <button class="lake" flat>flat normal</button>
-    <button class="lake" raised>raised Normal</button>
-    <button class="lake" fab><i mdi>add</i></button>
+    <div class="main">
+      <button class="lake button button--flat">flat normal</button>
+      <button class="lake button button--raise">raised normal</button>
+      <button class="lake button button--fab"><i mdi>add</i></button>
+      <button disabled class="lake button button--flat">
+        flat disabled
+      </button>
+      <button disabled class="lake button button--raise">
+        raised disabled
+      </button>
+      <button disabled class="lake button button--fab">
+        <i mdi>add</i>
+      </button>
+    </div>
     <script src="code/ripple.js"></script>
   </body>
 </html>

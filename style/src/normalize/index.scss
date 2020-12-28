@@ -1,9 +1,5 @@
-html,
 body {
   line-height: 1.4;
-  font-size: 1rem;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
   margin: 0;
   background: $color-bg;
   color: #454545;
@@ -20,38 +16,31 @@ html {
     background: rgba(0, 0, 0, 0.15);
   }
   ::-webkit-scrollbar-corner {
-    background: 0;
+    background: none;
   }
-  //remove tap highlight color for mobile
+  // hide tap highlighting for mobile
   -webkit-tap-highlight-color: transparent;
-  //remove firefox inner border and padding
-  button::-moz-focus-inner,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-  }
-  //remove user select
+  // disable user slection
   user-select: none;
-  //set cursor to default
-  cursor: default;
-  //remove outline when focus
-  *,
-  *:focus {
-    outline: 0;
-  }
 }
 
-[type="number"],
-[type="number"] {
-  box-sizing: border-box;
-  padding: 0;
+// normalize buttons
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+  background: transparent;
+  overflow: hidden;
+  border: none;
+  white-space: nowrap;
 }
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  margin: 0;
+//remove firefox inner border and padding
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
   padding: 0;
-  height: 18px;
 }

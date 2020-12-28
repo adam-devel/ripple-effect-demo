@@ -2,17 +2,11 @@
 //colors
 $color-bg: #eeeeee;
 $color-surface: #ffffff;
-$color-accent: #4caf50;
-//mob/pc screen width breakpoint
-$cr: 450px;
-$mob: max-width;
-$pc: min-width;
-//dimentions
-$base1: 8px;
-$base2: $base1 * 2;
-$base3: $base2 * 2;
-$base4: $base3 * 2;
+$color-on-bg: #000;
+$color-on-surface: #000;
+
 //import files
 @import "normalize/index.scss";
 @import "main/index.scss";
-@import "buttons/index.scss";
+@import "lake/index.scss";
+@import "button/index.scss";
