@@ -12,7 +12,7 @@ function startEffect({ target, pageX, pageY }, tone = "dark") {
     if (lake === body) return;
     lake = lake.parentNode;
   }
-
+  if (lake.hasAttribute("disabled")) return;
   // metrics
   const lakeWidth = parseInt(window.getComputedStyle(lake).width);
   const lakeHeight = parseInt(window.getComputedStyle(lake).height);
