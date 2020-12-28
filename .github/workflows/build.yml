@@ -15,7 +15,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git merge origin/main --squash --no-commit --no-ff --strategy-option theirs
+          git merge origin/main --squash --no-commit --strategy-option theirs
       - name: Setup Nodejs for building
         uses: actions/setup-node@v1
         with:
