@@ -27,7 +27,6 @@ jobs:
       - name: Commit and push the changes
         run: |
           git checkout HEAD .gitignore
-          git checkout HEAD .github
           git add --all
           git commit -m "Action: Rebuilt CSS"
           git push
