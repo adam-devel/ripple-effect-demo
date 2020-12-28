@@ -64,9 +64,12 @@ function finishEffect() {
     .then(() => ripple.remove());
 }
 
-body.addEventListener("mousedown", startEffect);
-body.addEventListener("touchstart", ({ touches }) => {
-  startEffect(touches[0]);
-});
-body.addEventListener("mouseup", finishEffect);
-body.addEventListener("touchend", finishEffect);
+if ("ontouchstart" in window) {
+  body.addEventListener("touchstart", ({ touches }) => {
+    startEffect(touches[0]);
+  });
+  body.addEventListener("touchend", finishEffect);
+} else {
+  body.addEventListener("mousedown", startEffect);
+  body.addEventListener("mouseup", finishEffect);
+}
